@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/Card';
 import ItemListContainer from './components/ItemListContainer';
@@ -7,33 +8,45 @@ import Saludo from './components/Saludo';
 
 function App(props) {
 
-  const mensaje = 'Bienvenido a mi app'
-  const estilos = {
-    backgroundColor: '#888',
-    padding: '20px'
+  const [counter, setCounter] = useState(0)
+
+  useEffect( () => {
+    setTimeout( ()=>{
+      console.log('Efecto al montaje');
+    }, 10000)
+
+    // return () => {
+    //   console.log('Efecto al desmontaje');
+    // }
+  }, [])
+  
+  useEffect( () => {
+    console.log('Efecto al montaje y cambio en counter');
+    // no usar aquí -> setCounter() generará loop infinito
+  }, [counter])
+
+  useEffect( () => {
+    console.log('Efecto en cada render');
+  })
+
+  const handleClick = () => {
+    console.log('hiciste click');
+    setCounter( counter + 1 ) // counter++ -> counter = counter + 1
   }
 
-  const log = () => { console.log('Hola'); }
-  const log2 = () => { console.log('Hi!'); }
+  console.log('Hubo render');
 
   return (
     <div className='container'>
       <NavBar/>
-      <ItemListContainer greeting={'Saludos'}/>
-      <h1>¡Hola Mundo!</h1>
-      <strong>Otro mensaje</strong>
-      <h3 style={ estilos }>{ mensaje }</h3>
-      <Saludo name="Juan" lastname='Pérez' fn={log}>
-        <p>Este es un mensaje 1</p>
-        <p>Este es un mensaje 2</p>
-        <p>Este es un mensaje 3</p>
-      </Saludo>
-      <Saludo name='Ana' lastname='López' fn={log2}>
-        <li>Un elemento de lista</li>
-      </Saludo>
-      <Saludo name='Miguel' lastname='Gonzalez'/>
 
-      <Card/>
+      <div className='my-5'>
+        <strong>Contador: {counter}</strong>
+      </div>
+      <button onClick={handleClick} className='btn my-5'>Click</button>
+
+      <ItemListContainer greeting={'Saludos'}/>  
+      <Saludo name='Miguel' lastname='Gonzalez'/>
       <Card/>
     </div>
   );
