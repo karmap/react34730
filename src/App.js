@@ -9,11 +9,31 @@ import Saludo from './components/Saludo';
 function App(props) {
 
   const [counter, setCounter] = useState(0)
+  const [products, setProducts] = useState([])
 
   useEffect( () => {
-    setTimeout( ()=>{
-      console.log('Efecto al montaje');
-    }, 10000)
+    
+    console.log('Promesa en mounting');
+
+    const getProducts = new Promise( (resolve, reject) => {
+      const rand = Math.random()
+      console.log( rand );
+
+      if ( rand > 0.5 ) {
+        resolve( ['mouse', 'teclado', 'cpu']  )
+      } else {
+        reject( 'Promesa rechazada' )
+      }
+
+    })
+
+    getProducts
+      .then( data => {
+        console.log( data );
+        setProducts( data )
+      })
+      .catch( err => { console.log( err ); })
+      .finally( () => { console.log('finally siempre sucede'); })
 
     // return () => {
     //   console.log('Efecto al desmontaje');
@@ -44,6 +64,8 @@ function App(props) {
         <strong>Contador: {counter}</strong>
       </div>
       <button onClick={handleClick} className='btn my-5'>Click</button>
+
+      {products.map( p => <div className='bg-orange-500 my-2'>{p}</div> )}
 
       <ItemListContainer greeting={'Saludos'}/>  
       <Saludo name='Miguel' lastname='Gonzalez'/>
