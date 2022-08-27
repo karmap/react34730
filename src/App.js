@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import Saludo from './components/Saludo';
@@ -31,6 +32,9 @@ function App(props) {
         <li>Un elemento de lista</li>
       </Saludo>
       <Saludo name='Miguel' lastname='Gonzalez'/>
+
+      <Card/>
+      <Card/>
     </div>
   );
 }

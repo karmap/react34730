@@ -4,9 +4,13 @@ const Saludo = ( {name, lastname, fn, children} ) => {
     fn()
   }
 
+  const styles = {
+    title: 'font-mono text-xl bg-orange-300 my-5'
+  }
+
   return (
     <>
-      <h1>¡Saludos a: {name} {lastname}!</h1>
+      <h1 className={styles.title}>¡Saludos a: {name} {lastname}!</h1>
       {children}
     </>
   )
