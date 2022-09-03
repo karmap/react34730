@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import SwapiContainer from './components/swapi/SwapiContainer';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import DbzApp from './DbzApp';
+// import DbzApp from './DbzApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    // <App />
-    <DbzApp/>
+    <SwapiContainer/>
   // </React.StrictMode>
 );
 
