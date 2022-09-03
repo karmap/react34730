@@ -1,15 +1,18 @@
+import { Link, NavLink } from "react-router-dom"
 import CartWidget from "./CartWidget"
 
 const NavBar = () => {
+
+  const navLinkClass = (navData) => 
+    navData.isActive ? 'btn btn-ghost normal-case text-xl bg-green-300' : 'btn btn-ghost normal-case text-xl'
+
   return (
     <div className="navbar bg-base-100">
     <div className="flex-1">
-      <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="https://placeimg.com/80/80/people" />
-          </div>
-        </label>
-      <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+      <NavLink className={navLinkClass} to={'/'}>Mi app</NavLink>
+      <NavLink className={navLinkClass} to={'/swapi'}>StarWars API</NavLink>
+      <NavLink className={navLinkClass} to={'/ram'}>Rick and Morty</NavLink>
+      {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
     </div>
     <div className="flex-none">
       <div className="dropdown dropdown-end">

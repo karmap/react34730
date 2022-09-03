@@ -58,7 +58,6 @@ function App(props) {
 
   return (
     <div className='container'>
-      <NavBar/>
 
       <div className='my-5'>
         <strong>Contador: {counter}</strong>
