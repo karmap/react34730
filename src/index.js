@@ -9,6 +9,8 @@ import DbzApp from './DbzApp';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import DbzDetail from './components/dragonballz/DbzDetail';
+import ItemDetailContainer from './components/shop/ItemDetailContainer';
+import ItemListContainer from './components/shop/ItemListContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +22,8 @@ root.render(
       <Route path='/swapi' element={<SwapiContainer/>}/>
       <Route path='/ram' element={<DbzApp/>}/>
       <Route path='/ram/:id' element={<DbzDetail/>}/>
+      <Route path='/shop' element={<ItemListContainer/>}/>
+      <Route path='/shop/item/:slug' element={<ItemDetailContainer/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>
