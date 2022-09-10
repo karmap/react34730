@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/Card';
+import InputNoVowels from './components/InputNoVowels';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import Saludo from './components/Saludo';
@@ -58,6 +59,8 @@ function App(props) {
 
   return (
     <div className='container'>
+
+      <InputNoVowels/>
 
       <div className='my-5'>
         <strong>Contador: {counter}</strong>
