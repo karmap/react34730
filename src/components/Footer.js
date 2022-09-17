@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const DarkmodeButton = () => {
   return (
-    <input type="checkbox" class="toggle" />
+    <input type="checkbox" className="toggle" />
   )
 }
 
