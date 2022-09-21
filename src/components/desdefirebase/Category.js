@@ -1,6 +1,6 @@
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { getProductsByCategory } from "../../helpers/firebaseHelpers"
 
 const Category = () => {
 
@@ -8,18 +8,12 @@ const Category = () => {
 
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
-    getProductsByCategory()
+  useEffect( () => {
+    const getProducts = async () => {
+        setProducts( await getProductsByCategory( categoryId ) )
+    }
+    getProducts()
   }, [])
-
-  const getProductsByCategory = () => {
-    const db = getFirestore()
-    const itemCollection = collection( db, 'items' )
-    const q = query(itemCollection, where('category', '==', categoryId) )
-    getDocs( q ).then( snapshot => {
-        setProducts( snapshot.docs.map( d => ({id: d.id, ...d.data()}) ) );
-    })
-  }
 
   return (
     <>
