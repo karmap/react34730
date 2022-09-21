@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
+import Links from "./Links";
 
 export const ProductCard = ( {title, price, stock, img} ) => {
   return (
@@ -42,6 +43,7 @@ const ProductsContainter = () => {
   return (
     // <ProductCard {...products}/>
     <>
+      <Links/>
       { products.map( p => <ProductCard key={p.id} {...p}/> ) }
     </>
   )

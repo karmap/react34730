@@ -16,6 +16,7 @@ import MemoContainer from './components/memoexample/MemoContainer';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import ProductsContainter from './components/desdefirebase/ProductsContainter';
+import Category from './components/desdefirebase/Category';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -46,6 +47,7 @@ root.render(
       <Route path='/shop/item/:slug' element={<ItemDetailContainer/>}/>
       <Route path='/memo' element={<MemoContainer/>}/>
       <Route path='/products' element={<ProductsContainter/>}/>
+      <Route path='/products/category/:id' element={<Category/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>
