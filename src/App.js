@@ -71,7 +71,7 @@ function App(props) {
         {products.map( p => <div className='bg-orange-500 my-2'>{p}</div> )}
 
         <ItemListContainer greeting={'Saludos'}/>  
-        <Saludo name='Miguel' lastname='Gonzalez'/>
+        <Saludo name='Ana' lastname='Lopez'/>
         <Card/>
       </DarkmodeContext.Provider>
     </div>
